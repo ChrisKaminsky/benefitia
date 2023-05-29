@@ -1,0 +1,673 @@
+<style>
+body {
+    font-family: Arial;
+    text-align:justify;
+}
+
+td {
+    padding: 3px;
+    vertical-align:top;
+}
+</style>
+
+<h1>UMOWA POŻYCZKI KONSUMENCKIEJ NR: {{Model.ContractNr}}</h1>
+<p>
+Zawarta w dniu {{Model.ContractDate | date.to_string '%Y-%m-%d'}}  pomiędzy stronami: <br/>
+
+<table border=0>
+    <tr>
+    <td>Nazwa podmiotu:</td>
+    <td>Capital4You spółka z ograniczoną odpowiedzialnością</td>
+    </tr>
+    <tr>
+    <td>Adres siedziby:</td>
+    <td> Garncarska 1, 62-800 Kalisz, Polska (główne miejsce wykonywania
+działalności)</td>
+    </tr>
+    <tr>
+    <td>Adres do doręczeń elektronicznych </td>
+    <td>AE:PL-91361-94119-STUSG-25</td>
+    </tr>
+    <tr>
+    <td>Numer telefonu:</td>
+    <td>792 560 708</td>
+    </tr>
+    <tr>
+    <td>Sąd rejestrowy:</td>
+    <td>Kalisz</td>
+    </tr>
+    <tr>
+    <td>Wydział Sądu</td>
+    <td>XIII Wydział Gospodarczy Krajowego Rejestru Sądowego</td>
+    </tr>
+    <tr>
+    <td>Kapitał zakładowy:</td>
+    <td>1 mln zł</td>
+    </tr>
+    <tr>
+    <td>KRS:</td>
+    <td>0001033157</td>
+    </tr>
+    <tr>
+    <td>NIP:</td>
+    <td>6182197594</td>
+    </tr>
+    <tr>
+    <td>REGON:</td>
+    <td>525140424</td>
+    </tr>
+    <tr>
+    <td>Rejestr UKNF:</td>
+    <td></td>
+    </tr>
+</table>
+<br/>
+Dalej jako: „Pożyczkodawca lub Capital4You”<br/>
+<br/>
+oraz<br/><br/>
+
+<table border=0>
+    <tr>
+        <td>Imię i nazwisko:</td>
+        <td>{{Model.FirstName}} {{Model.LastName}}</td>
+    </tr>
+    <tr>
+        <td>PESEL</td>
+        <td>{{Model.PESEL}}</td>
+    </tr>
+    <tr>
+        <td>Dowód osobisty</td>
+        <td>{{Model.IdDocumentNr}}</td>
+    </tr>
+    <tr>
+        <td>Miejsce zamieszkania</td>
+        <td>{{Model.Street}} {{Model.HouseNr}} {{Model.ApptNr}} <br/>{{Model.PostCode}} {{Model.City}}</td>
+    </tr>
+    <tr>
+        <td>Telefon komórkowy</td>
+        <td>{{Model.MobilePhone}}</td>
+    </tr>
+    <tr>
+        <td>Adres email</td>
+        <td>{{Model.Email}}</td>
+    </tr>
+</table>
+<br/>
+Dalej jako: „Pożyczkobiorca” <br/><br/>
+
+Na podstawie niniejszej umowy Pożyczkodawca,
+udzieli pożyczki na następujących warunkach:<br/>
+
+<table border=0>
+    <tr>
+        <td>Całkowita kwota pożyczki:</td>
+        <td>{{Model.Product.Name}}</td>
+    </tr>
+    <tr>
+        <td>Opłata za zarządzanie pożyczką:</td>
+        <td>{{Model.Product.LoanManagementFee}} PLN</td>
+    </tr>
+    <tr>
+        <td>Oprocentowanie:</td>
+        <td>{{Model.Product.InterestRate}}%</td>
+    </tr>
+    <tr>
+        <td>Całkowity koszt pożyczki:</td>
+        <td> {{Model.TotalLoanCost}} PLN</td>
+    </tr>
+    <tr>
+        <td>Całkowita kwota do zapłaty:</td>
+        <td>{{Model.TotalAmountToPayBack}} PLN</td>
+    </tr>
+    
+    <tr>
+        <td>Wysokość Raty miesięcznej**:</td>
+        <td>{{Model.Product.InstalmentAmount + Model.Product.LoanManagementFee}} PLN</td>
+    </tr>
+    <tr>
+        <td>Termin spłaty I raty*:</td>
+        <td>{{Model.FirstPaymentDueDate | date.to_string '%Y-%m-%d'}}</td>
+    </tr>
+    <tr>
+        <td>Termin spłaty kolejnych rat:</td>
+        <td>{{Model.FirstPaymentDueDate.Day}} dnia każdego miesiąca (liczy się dzień
+zaksięgowania środków na koncie Pożyczkodawcy)</td>
+    </tr>
+    <tr>
+        <td>Wartość ostatniej raty miesięcznej:</td>
+        <td> {{Model.LastPlanInstalment.TotalPayment}} PLN</td>
+    </tr>
+</table>
+
+
+* Pierwsza rata płatna jest w terminie miesiąca od dnia zawarcia Umowy, z tym, że
+jeżeli Umowa została zawarta 29.30 lub 31 dnia miesiąca, termin płatności I raty liczy
+się, poczynając od pierwszego dnia następnego miesiąca kalendarzowego<br/>
+** płatna na Indywidulany Rachunek Bankowy numer {{Model.LoanBankAccount}}<br/>
+Pożyczkobiorca oświadcza, iż kwota zostanie przeznaczona na zaspokojenie
+zwykłych potrzeb rodzinnych TAK
+<br/>
+</p>
+
+<p>
+<h2>Postanowienia ogólne dotyczące Umowy Pożyczki</h2>
+<ol>
+<li>
+Pożyczkobiorca składa Pożyczkodawcy Wniosek o pożyczkę, poprzez formularz
+dostępny na stronie:www.capital4you.pl/dokumenty Po złożeniu Wniosku o pożyczkę Pożyczkobiorcy
+udostępniane są, drogą elektroniczną na adres e-mail wskazany przez Pożyczkobiorcę we
+Wniosku o pożyczkę, wszelkie informacje i dokumenty istotne dla oceny ryzyka i
+kosztów związanych z zawarciem Umowy Pożyczki – w tym formularz informacyjny
+dotyczący kredytu konsumenckiego.</li>
+<li>Pożyczka jest udzielana Pożyczkobiorcy pod warunkiem pozytywnej oceny zdolności
+kredytowej Pożyczkobiorcy, rozumianej jako zdolność Pożyczkobiorcy do spłaty
+Pożyczki wraz należnymi opłatami oraz odsetkami, w terminach ustalonych Umową
+Pożyczki.</li>
+<li>Pożyczkobiorca, o ile akceptuje proponowane mu warunki pożyczki, zawiera umowę
+pożyczki, składając oświadczenie woli w drodze wiadomości SMS. Umowa Pożyczki
+zostaje zawarta z chwilą zaakceptowania w drodze SMS przez Pożyczkobiorcę Umowy
+pożyczki wraz z załącznikami (przyjęcie oferty). Pożyczkodawca przekazuje
+Pożyczkobiorcy zawartą Umowę pożyczki wraz z załącznikami drogą elektroniczną,
+na adres e-mail Pożyczkobiorcy, wskazany przez Pożyczkobiorcę we Wniosku o
+pożyczkę.</li>
+<li>Pożyczkobiorca poprzez zawarcie niniejszej Umowy Pożyczki, niezależnie od sposobu
+wykorzystania kwoty udzielonej pożyczki, zobowiązuje się do spłaty Całkowitej kwoty do
+zapłaty Pożyczki, a spłata Całkowitej kwoty do zapłaty Pożyczki jest zabezpieczona
+Wekslem in blanco podpisanym przez Pożyczkobiorcę.</li>
+<li>Pożyczkobiorca może, bez podania przyczyny, odstąpić od Umowy Pożyczki w
+terminie 14 dni od daty jej zawarcia, składając stosowne oświadczenie o odstąpieniu od
+Umowy Pożyczki. Oświadczenie może być złożone w dowolnej formie, tak aby
+Pożyczkodawca miał możliwość zapoznania się z jego treścią oraz aby wynikała z niego
+wola składającego oświadczenie odstąpienia od Umowy Pożyczki, w tym poprzez
+złożenie oświadczenia o odstąpieniu od Umowy Pożyczki w siedzibie Pożyczkodawcy,
+przesłanie go na adres: ul. Garncarska 1, 62-800 Kalisz, adres e-
+mail:biuro@capital4you.pl lub na adres do doręczeń
+elektronicznych:AE:PL-91361-94119-STUSG-25. Zalecane jest, dla celów dowodowych, złożenie
+oświadczenia w formie pisemnej, jednakże Pożyczkobiorca nie ma takiego obowiązku.
+Dla zachowania terminu, o którym mowa w zdaniu poprzedzającym, wystarczające jest
+wysłanie oświadczenia o odstąpieniu od Umowy Pożyczki przed upływem ww. terminu.<br/>
+
+Wzór odstąpienia od Umowy Pożyczki (formularz odstąpienia od Umowy Pożyczki)
+stanowi załącznik do Umowy Pożyczki oraz znajduje się na stronie 8 Umowy, jednak
+oświadczenie o odstąpieniu od Umowy Pożyczki może zostać sformułowane przez
+Pożyczkobiorcę również samodzielnie.</li>
+<li>W przypadku skorzystania przez Pożyczkobiorcę z prawa do odstąpienia od Umowy
+Pożyczki, umowę uznaje się za niezawartą, a Pożyczkobiorca nie jest obciążony Opłatą
+za zarządzanie pożyczką (o ile jest należna) oraz jest zobowiązany niezwłocznie, ale
+nie później niż w terminie 30 dni od złożenia oświadczenia o odstąpieniu od umowy,
+zwrócić Pożyczkodawcy całą kwotę wypłaconą mu na podstawie Umowy Pożyczki
+(określoną w poz. I powyżej) przelewem na Indywidualny Rachunek Bankowy,
+osobiście w siedzibie Pożyczkodawcy bądź też za pomocą usługi przekazu pieniężnego
+w rozumieniu ustawy z dnia 19 sierpnia 2011 r. o usługach płatniczych (t.j. Dz. U. z
+2022 r., poz. 2360, ze zm.), świadczonej przez podmiot uprawniony na mocy tej
+ustawy.</li>
+<li>W przypadku zwrotu przez Pożyczkobiorcę całej kwoty wypłaconej mu na podstawie
+Umowy Pożyczki, Pożyczkodawca zwróci Pożyczkobiorcy wystawiony celem
+zabezpieczenia Umowy Pożyczki weksel in blanco, przesyłką poleconą za
+potwierdzeniem odbioru, na adres Pożyczkobiorcy wskazany Umową pożyczki.</li>
+<li>W terminie do 72 godzin od zawarcia Umowy Pożyczki Pożyczkodawca przekaże
+Pożyczkobiorcy Całkowitą kwotę Pożyczki: do rąk własnych Pożyczkobiorcy, za
+pokwitowaniem, jednorazowo, gotówką, za pośrednictwem Kuriera, nieodpłatnie, pod
+adresem Pożyczkobiorcy wskazanym Umową Pożyczki.</li>
+<li>Przekazanie Pożyczkobiorcy Całkowitej kwoty Pożyczki zgodnie z pkt 8 powyżej stanowi
+całkowite wywiązanie się przez Pożyczkodawcę z obowiązku przekazania
+Pożyczkobiorcy przedmiotu Pożyczki.</li>
+<li>Pożyczkobiorca zobowiązuje się spłacić całość pozostałego do spłaty łącznego
+zobowiązania wynikającego z Umowy Pożyczki poprzez dokonywanie wpłat
+miesięcznych Rat Pożyczki przelewem (za opłatą naliczoną przez Bank
+Pożyczkobiorcy lub bez opłat w przypadku dokonania przelewu za pośrednictwem
+Banku Pocztowego lub Poczty Polskiej S.A.) na Indywidualny Rachunek Bankowy.
+Pożyczkobiorca może dokonać też spłaty Pożyczki poprzez spłatę Rat w siedzibie
+Pożyczkodawcy, bądź też za pomocą usługi przekazu pieniężnego w rozumieniu
+ustawy z dnia 19 sierpnia 2011 r. o usługach płatniczych (t.j. Dz. U. z 2022 r., poz.
+2360, ze zm.), świadczonej przez podmiot uprawniony na mocy tej ustawy.</li>
+<li>Pożyczkobiorca dokonuje spłaty Pożyczki poprzez spłatę Raty Pożyczki w
+wysokości i w terminach określonych Terminarzem spłat.</li>
+
+<li>W przypadku opóźnienia Pożyczkobiorcy w spłacie danej Raty Pożyczkodawca
+może naliczyć odsetki za opóźnienie w wysokości nieprzekraczającej w stosunku
+rocznym dwukrotności wysokości odsetek ustawowych za opóźnienie, o których
+mowa w art. 481 § 2(1) Kodeksu cywilnego (odsetki maksymalne za opóźnienie) w
+wysokości % w stosunku rocznym. Zmiana stopy procentowej odsetek za
+opóźnienie następuje automatycznie wraz ze zmianą wysokości stopy
+referencyjnej Narodowego Banku Polskiego zgodnie z pkt 24 Regulaminu. W
+przypadku naliczenia odsetek za opóźnienie, gdy kwota uzyskana od
+Pożyczkobiorcy nie wystarcza na pokrycie całej Raty oraz całych odsetek za
+opóźnienie, uzyskana kwota może podlegać zaliczeniu na Raty, co do których
+Pożyczkobiorca pozostaje w opóźnieniu, w kolejności od Raty najwcześniej
+wymagalnej, a następnie na niezapłacone odsetki za opóźnienie w ko- lejności od
+odsetek z tytułu najwcześniejszych Zaległości. Kierowanie przez Pożyczkodawcę
+monitów/wezwań wobec Pożyczkobiorcy może nastąpić nie wcześniej niż po 21
+dniu przeterminowania należności Pożyczkodawcy.</li>
+
+<li>Pożyczkodawca przekaże Pożyczkobiorcy Terminarz spłat; na adres e-mail
+Pożyczkobiorcy wskazany we Wniosku o pożyczkę, po przekazaniu Całkowitej
+kwoty pożyczki (określonej w punkcie I Umowy Pożyczki) gotówką za
+pośrednictwem Kuriera.</li>
+</ol>
+</p>
+<p>
+<h2>Postanowienia wspólne</h2>
+<ol start="14">
+<li>
+Roczna stopa Oprocentowania Pożyczki jest zmienna w okresie obowiązywania Umowy
+Pożyczki i równa jest wysokości dwu- krotności odsetek ustawowych, o których mowa w
+art. 359 par. 2(1) Kodeksu Cywilnego (odsetki maksymalne). Wysokość rocznej stopy
+Oprocentowania Pożyczki wskazana jest w rubryce III na pierwszej stronie Umowy
+Pożyczki. W przypadku zmiany wysokości odsetek ustawowych, o których mowa
+powyżej, roczna stopa Oprocentowania Pożyczki ulegnie automatycznemu obniżeniu
+(jeżeli wysokość odsetek ustawowych zostanie obniżona) albo podwyższeniu (jeżeli
+wysokość odsetek ustawowych zostanie podwyższona) do aktualnej wysokości odsetek
+maksymalnych, z chwilą zmiany wysokości odsetek ustawowych. Wysokość rocznej
+stopy Oprocentowania Pożyczki może ulec podwyższeniu maksymalnie do wysokości
+rocznej stopy Oprocentowania Pożyczki obowiązującej w chwili zawarcia Umowy
+Pożyczki. W przypadku zmiany wysokości rocznej stopy Oprocentowania Pożyczki,
+wysokość poszczególnych Rat spłaty Pożyczki ulegnie zmianie w związku ze zmianą
+kwoty odsetek płatnych w poszczególnych Ratach. Kwota odsetek przypadająca do
+spłaty w danej racie Pożyczki ulegnie automatycznemu zmniejszeniu, jeżeli wysokość
+odsetek maksymalnych i tym samym wysokość Oprocentowania Pożyczki, zostanie
+obniżona, lub zwiększeniu, jeżeli wysokość odsetek maksymalnych i tym samym
+wysokość Oprocentowania Pożyczki zostanie podwyższona w dacie, od której
+obowiązuje obniżona lub podwyższona wysokość odsetek maksymalnych. Szczegółowa
+aktualna wysokość poszczególnych Rat spłaty Pożyczki zostanie podana Pożyczkobiorcy
+w zaktualizowanym Terminarzu spłat. W przypadku zmiany Oprocentowania, jak również
+zmiany wysokości odsetek za opóźnienie, wskazanych w punkcie 13 Umowy Pożyczki,
+Pożyczkobiorca zostanie o tym każdorazowo poinformowany przez Pożyczkodawcę na
+trwałym nośniku (listem poleconym lub przez e-mail lub sms). W powyższym terminie
+Pożyczkodawca przekaże Pożyczkobiorcy, również nowy Terminarz spłat (listem
+poleconym lub przez e-mail lub sms).</li>
+<li>Pożyczkobiorca ma prawo do otrzymania w każdym czasie, na wniosek, bezpłatnie
+harmonogramu spłaty, określającego termin, wysokość Raty Pożyczki z
+wyodrębnieniem jej poszczególnych składników (Opłata za zarządzanie pożyczką,
+Odsetki za opóźnienie, Opłaty dodatkowe) oraz wskazującego, że dane zawarte w
+harmonogramie obowiązują do momentu zmiany stopy oprocentowania lub
+wszelkich innych kosztów Pożyczki składających się na wysokość jej Raty.
+Powyższe nie ogranicza prawa Pożyczkobiorcy do potwierdzenia salda Pożyczki w
+innej, oczekiwanej przez Pożyczkobiorcę formie, w każdym czasie.</li>
+
+<li>Pożyczkobiorca może spłacić całość łącznego zobowiązania przed terminem
+ustalonym w Umowie Pożyczki przelewem (za opłatą naliczoną przez Bank
+Pożyczkobiorcy lub bez opłat w przypadku dokonania przelewu za pośrednictwem
+Banku Pocztowego lub Poczty Polskiej S.A.) na Indywidualny Rachunek Bankowy .
+Pożyczkobiorca ma również prawo dokonać spłaty całości łącznego zobowiązania
+przed terminem ustalonym w Umowie Pożyczki w siedzibie Pożyczkodawcy lub za
+pomocą usługi przekazu pieniężnego w rozumieniu ustawy z dnia 19 sierpnia 2011 r. o
+usługach płatniczych (t.j. Dz. U. z 2022 r., poz. 2360, ze zm.), świadczonej przez
+podmiot uprawniony na mocy tej ustawy. Pożyczkodawca nie pobiera od
+Pożyczkobiorcy prowizji za dokonanie spłaty pożyczki przed terminem w rozumieniu
+art. 51 Ustawy o kredycie konsumenckim.
+</li>
+<li>W przypadku określonym punktem powyższym, Całkowity koszt pożyczki ulega
+obniżeniu o te koszty, które dotyczą okresu, o który skrócono czas obowiązywania
+Umowy Pożyczki, chociażby Pożyczkobiorca poniósł je przed tą spłatą, w wysokości
+proporcjonalnej do okresu, o który skrócono czas obowiązywania Umowy Pożyczki.
+Pożyczkodawca rozliczy się z tego tytułu z Pożyczkobiorcą w terminie 14 dni od
+dokonania wcześniejszej spłaty Pożyczki w całości - rozliczenie może nastąpić
+przelewem na rachunek bankowy Pożyczkobiorcy lub za pomocą usługi przekazu
+pieniężnego w rozumieniu ustawy z dnia 19 sierpnia 2011 r. o usługach płatniczych (t.j.
+Dz. U. z 2022 r., poz. 2360, ze zm.), świadczonej przez podmiot uprawniony na mocy
+tej ustawy. Jeśli jednak Pożyczkobiorca dokonał wcześniejszej spłaty części
+Pożyczki, wówczas raty spłaty Pożyczki pozostaną w wysokości dotąd ustalonej
+przez strony, a kwota wcześniejszej częściowej spłaty może zostać przez
+Pożyczkodawcę zaliczona na Całkowitą kwotę pożyczki, a następnie na
+Oprocentowanie Pożyczki.</li>
+<li>
+Językiem stosowanym w relacjach Pożyczkodawcy z Pożyczkobiorcą jest język
+polski.</li>
+
+<li>
+W przypadku niewykonania lub nienależytego wykonania zobowiązania wobec
+Pożyczkobiorcy przez Pożyczkodawcę, gdy żądanie przez Pożyczkobiorcę
+wykonania tego zobowiązania nie było skuteczne, Pożyczkobiorcy przysługuje prawo
+dochodzenia swoich roszczeń o wykonanie tego zobowiązania od Pożyczkodawcy.
+Spory związane z wykonaniem Umowy Pożyczki będą rozpoznawane przez Sąd
+Powszechny właściwy dla miejsca zamieszkania/ siedziby pozwanego oraz przez
+wszystkie e-sądy. Na etapie poprzedzającym postępowanie Pożyczkobiorca może
+skorzystać z pozasądowych trybów rozstrzygania sporów: 1) przed Rzecznikiem
+Finansowym, na zasadach określonych w Ustawie z dnia 5 sierpnia 2015 r. o
+rozpatrywaniu reklamacji przez podmioty rynku finansowego i o Rzeczniku
+Finansowym, na podstawie wniosku Pożyczkobiorcy złożonego w sytuacji
+nieuwzględnienia jego roszczeń przez Pożyczkodawcę. Strona internetowa
+Rzecznika Finansowego: http://rf.gov.pl/; 2) przed sądem polubownym działającym
+przy Komisji Nadzoru Finansowego, zgodnie z jego regulaminem. Szczegółowe
+informacje o sądzie polubownym są dostępne na stronie http://www.knf.gov.pl/
+regulacje/Sad_ Polubowny/ Przed podjęciem decyzji o poddaniu sporu pod
+rozstrzygnięcie sądu polubownego należy zapoznać się z treścią regulaminu tego
+sądu oraz taryfą opłat.
+</li>
+</ol>
+</p>
+
+<p>
+<H2>Postanowienia końcowe</H2>
+<ol start="20">
+<li>Integralną część niniejszej Umowy Pożyczki stanowi Regulamin udzielania
+pożyczek.</li>
+
+<li>Podpisując niniejszą umowę Pożyczkobiorca oświadcza, że przed jej podpisaniem
+zapoznał się z treścią Umowy Pożyczki, że został poinformowany o prawie
+odstąpienia od Umowy pożyczki oraz, że otrzymał jeden egzemplarz Umowy
+Pożyczki wraz z Regulaminem, Terminarzem spłat oraz Formularz odstąpienia od
+niniejszej Umowy Pożyczki.</li>
+<li>Pożyczkodawca zapewnia ochronę danych Pożyczkobiorcy uzyskanych od niego i
+przechowywanych w bazie danych Klientów – zgodnie z przepisami Ustawy o
+ochronie danych osobowych z dnia 10 maja 2018 r. (Dz. U. z 2018r. poz. 1000 ze
+zm.) oraz rozporządzenia Parlamentu Europejskiego i Rady (UE) w sprawie
+ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w
+sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE
+(RODO).</li>
+<li>Pożyczkobiorca upoważnia Pożyczkodawcę do wystąpienia z zapytaniami i
+
+uzyskania z Biur Informacji Gospodarczej lub instytucji, o których mowa w art. 105
+ust. 4 ustawy z dnia 29 sierpnia 1997 r. - Prawo bankowe, informacji
+gospodarczych dotyczących Pożyczkobiorcy w celu dokonania oceny zdolności
+kredytowej oraz ryzyka kredytowego dotyczącego Pożyczkobiorcy. Pożyczkobiorca
+oświadcza, że przyjmuje do wiadomości, że Pożyczkodawca jest obowiązany na
+mocy art. 59b Ustawy o kredycie konsumenckim do przekazywania do ww.
+podmiotów informacji o całkowitej spłacie zobowiązań wynikających z zawartych
+umów pożyczki z Pożyczkodawcą, ich wygaśnięciu, o stwierdzeniu nieistnienia
+zobowiązania lub korekcie jego wysokości oraz o nowo powstałych
+zobowiązaniach i ich aktualizacji.</li>
+
+<li>Prawem stanowiącym podstawę stosunków Pożyczkodawcy z Pożyczkobiorcą
+przed zawarciem Umowy Pożyczki oraz właściwym do zawarcia i wykonania tej
+Umowy, również w kwestiach wprost nieregulowanych Umową Pożyczki, jest
+prawo polskie, w szczególności przepisy Ustawy o kredycie konsumenckim,
+Kodeksu Cywilnego, oraz inne właściwe przepisy prawa.</li>
+
+<li>Wszelkie zmiany niniejszej Umowy Pożyczki lub jej załączników dla swej ważności
+wymagają formy pisemnej w postaci aneksu podpisanego przez obie Strony.</li>
+
+<li>Integralną część niniejszej Umowy stanowią załączniki: Regulamin pożyczek
+udzielanych przez Capital4You Sp. z o.o. oraz Oświadczenie Pożyczkobiorcy o
+jego dochodach i stałych wydatkach gospodarstwa domowego (o ile jest
+wymagane).</li>
+<li>Jeżeli poszczególne postanowienia Umowy Pożyczki, okażą się nieważne
+pozostałe postanowienia pozostają w mocy.</li>
+</ol>
+</p>
+
+<p>
+<h2>Postanowienia dodatkowe</h2>
+
+Administratorem danych osobowych jest spółka Capital4You Sp. z o.o. z siedzibą w Kaliszu
+przy ul. Garncarskiej 1, 62-800 Kalisz, wpisana do rejestru przedsiębiorców prowadzonego
+przez Sąd Rejonowy Poznań – Nowe Miasto i Wilda w Poznaniu, IX Wydział Gospodarczy
+Krajowego Rejestru Sądowego pod numerem KRS 0001033157. Kontakt z Capital4You w
+sprawie przetwarzanych danych osobowych jest możliwy pod adresem e-mail:
+biuro@capital4you.pl lub pisemnie na adres: ul. Garncarska 1, 62- 800 Kalisz.
+Capital4You będzie przetwarzać Pani/Pana dane osobowe:<br/>
+<ol>
+<li>przekazane nam przez Panią/Pana w ramach złożonego przez Panią/Pana wniosku
+o udzielenie pożyczki,</li>
+<li>pozyskane od podmiotów trzecich, tj. Biur Informacji Gospodarczej (Krajowy Rejestr
+Długów Biuro Informacji Gospodarczej S.A. z siedzibą we Wrocławiu - KRS: 0000169851,
+ERIF Biuro Informacji Gospodarczej S.A. z siedzibą w Warszawie – KRS: 0000182408),
+instytucji o których mowa w art. 105 ust. 4 ustawy z dnia 29 sierpnia 1997 r. - Prawo
+bankowe, oraz ze źródeł powszechnie dostępnych, w szczególności z baz i rejestrów
+PESEL, Rejestru Dowodów Osobistych, KRS, CEIDG, REGON, w zakresie danych
+wymaganych dla identyfikacji Pani/Pana osoby (w szczególności danych określających
+imię, nazwisko, PESEL) oraz dla dokonania oceny zdolności kredytowej, sytuacji
+finansowej, dawnych i obecnych zobowiązań, Pani/Pana zatrudnienia oraz dochodu,
+</li>
+<li>dotyczące zawartej Umowy pożyczki, obejmujące parametry pożyczki, dokonane
+spłaty rat i zaistniałe opóźnienia w spłacie wymagalnych zobowiązań;
+Podanie danych osobowych przez Panią/Pana jest dobrowolne, ale niezbędne do zawarcia
+umowy pożyczki.</li>
+</ol>
+
+Pani/Pana dane osobowe będą przetwarzane w celu:
+<ol>
+<li>zawarcia i wykonania umowy pożyczki konsumenckiej (dalej:„Umowa”),</li>
+<li>wykonania obowiązków wynikających z obowiązujących przepisów prawa, w tym w
+zakresie dokonania oceny Pani/Pana zdolności kredytowej i ryzyka kredytowego, realizacji
+obowiązków wynikających z ustawy z dnia 01.03.2018 r. o przeciwdziałaniu praniu
+pieniędzy i finansowaniu terroryzmu (t.j. Dz. U. z 2023 r., poz. 180, ze zm.), a także w celu
+rozpatrywania ewentualnych reklamacji dotyczących usług Capital4You oraz realizacji
+obowiązków księgowych i podatkowych – na podstawie art. 6 ust. 1 lit. c) Rozporządzenia
+Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27.04.2016 r. (dalej: RODO);</li>
+
+<li>realizacji prawnie uzasadnionego interesu Capital4You, czyli dochodzenia
+ewentualnych roszczeń Capital4You, obrony Capital4You przed ewentualnymi Pani/Pana
+roszczeniami, poprawy jakości usług świadczonych przez Capital4You, wykrywania i
+zapobiegania nadużyciom prawa, w celu archiwalnym i dowodowym, w celu analitycznym,
+w celu prowadzenia marketingu bezpośredniego w przypadku uzyskania zgody na
+podstawie art. 6 ust. 1 lit a RODO na kontakt telefoniczny (w związku z art. 172 ust. 1
+Ustawy z dnia 16 lipca 2004 roku – Prawo Telekomunikacyjne), lub elektroniczny (w
+rozumieniu ustawy z dnia 18 lipca 2002 r. o świadczeniu usług drogą elektroniczną) na
+otrzymywanie informacji handlowych, w celach archiwizacyjnych – na podstawie art. 6 ust.
+1 lit. f) RODO;</li>
+<li>zgodnych z udzieloną przez Panią/Pana odrębnie zgodą, w zakresie objętym tą zgodą,
+w tym w szczególności w celach marketingowych, w tym dla wykonywania telefonicznych
+połączeń w celu marketingu bezpośredniego produktów i usług Capital4You i/lub
+podmiotów współpracujących z Capital4You (w związku z art. 172 ust. 1 Ustawy z dnia 16
+lipca 2004 roku – Prawo Telekomunikacyjne), nawiązywania kontaktu drogą elektroniczną,
+za pośrednictwem sms, w celu marketingu bez-pośredniego produktów i usług Capital4You
+i/lub podmiotów współpracujących z Capital4You (w rozumieniu ustawy o świadczeniu
+usług drogą elektroniczną z dnia z dnia 18 lipca 2002 r. o świadczeniu usług drogą
+elektroniczną) – na podstawie art. 6 ust. 1 lit. a) RODO.</li>
+</ol>
+
+W zależności od celu przetwarzania dane osobowe mogą być udostępniane:
+<ol>
+<li>podmiotom przetwarzającym dane w na podstawie umowy, w imieniu i na zlecenie
+Capital4You, świadczącym usługi niezbędne do udzielenia i obsługi pożyczki (MIP Benefitia Sp.
+z o.o. ul. Bagno 2/71, 00-112 Warszawa oraz Focus Telecom Polska Sp. z o.o., ul. Ostrobramska 101a, 04-041
+Warszawa), w tym świadczącym usługi informatyczno–hostingowe, usługi obsługi prawnej,
+usługi windykacyjne, pocztowe;</li>
+<li>
+podmiotom uprawnionym na podstawie przepisów obowiązującego prawa, w tym
+m.in. organom wymiaru sprawiedliwości lub Prezesowi Urzędu Ochrony Danych
+Osobowych, a także innym organom władzy publicznej w zakresie realizowanych przez nie
+uprawnień,</li>
+<li>
+biurom informacji gospodarczej (Krajowy Rejestr Długów Biuro Informacji
+Gospodarczej S.A. z siedzibą we Wrocławiu - KRS: 0000169851, ERIF Biuro Informacji
+Gospodarczej S.A. z siedzibą w Warszawie – KRS: 0000182408), oraz do Biura Informacji
+Kredytowej S.A. z siedzibą w Warszawie oraz instytucjom, o których mowa w art. 105 ust. 4
+ustawy z dnia 29 sierpnia 1997 r. - Prawo bankowe oraz do Biura Informacji Kredytowej
+S.A. z siedzibą w Warszawie, na podstawie Pani/Pana zgody. Dane mogą być
+
+udostępniane bez Pani/Pana zgody, na podstawie i w zakresie dozwolonym przepisami
+prawa, w tym ustawy o udostępnianiu informacji gospodarczych i wymianie danych
+gospodarczych oraz ustawy Prawo bankowe;</li>
+
+</ol>
+
+Pani/Pana dane osobowe nie będą przekazywane poza obszar EOG.<br/>
+Dane osobowe przetwarzane w celach związanych z zawarciem Umowy będą
+przetwarzane przez okres realizacji Umowy, a po zakończeniu Umowy: przez okres
+właściwy dla przedawnienia ewentualnych roszczeń wynikających z zawartej umowy
+pożyczki, przez okres do chwili wygaśnięcia obowiązków przechowywania danych
+wynikających z przepisów prawa, w szczególności przepisów o praniu brudnych pieniędzy
+i przeciwdziałania terroryzmowi, przepisów podatkowych. W zakresie danych, które
+przetwarzane są na podstawie Pana/Pani zgody, dane osobowe będą przetwarzane przez
+czas udzielenia zgody lub do czasu jej wycofania bądź wygaśnięcia (w przypadku, jeśli
+zgoda ograniczona została terminem).<br/>
+Dane przetwarzane dla celów przesyłania informacji handlowych dotyczących produktów
+Capital4You oraz partnerów Capiatl4You, będą przetwarzane do czasu złożenia przez
+Panią/Pana sprzeciwu wobec ich przetwarzania.<br/>
+Dane osobowe, przekazane przez Panią/Pana będą przetwarzane w sposób
+zautomatyzowany, w tym profilowane, dla potrzeb oceny zdolności kredytowej oraz analizy
+ryzyka kredytowego. Przysługuje Pani/Panu prawo odwołania od decyzji podjętej w sposób
+zautomatyzowany do Capital4You i uzyskania interwencji ze strony pracownika, jak również
+prawo do wyrażenia własnego stanowiska i zakwestionowania decyzji opartej na
+zautomatyzowanym przetwarzaniu danych.<br/>
+Ma Pan/Pani prawo dostępu do treści swoich danych osobowych oraz prawo ich
+sprostowania, usunięcia, ograniczenia przetwarzania, prawo do przenoszenia danych,
+prawo wniesienia sprzeciwu, prawo do cofnięcia zgody w dowolnym momencie bez wpływu
+na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej
+cofnięciem. W przypadku stwierdzenia, że przetwarzanie danych osobowych na- rusza
+przepisy RODO, ma Pan/Pani prawo wnieść skargę do Prezesa Urzędu Ochrony Danych
+Osobowych.<br/>
+Podanie danych osobowych przez Panią/Pana jest dobrowolne, ale niezbędne do
+rozpatrzenia wniosku o pożyczkę i zawarcia umowy pożyczki.<br/>
+Dane osobowe, przekazane przez Panią/Pana będą przetwarzane w sposób
+zautomatyzowany, w tym profilowane, dla potrzeb oceny zdolności kredytowej oraz analizy
+ryzyka kredytowego. Przysługuje Pani/Panu prawo odwołania od decyzji podjętej w sposób
+zautomatyzowany do Capital4You i uzyskania interwencji ze strony pracownika, jak również
+prawo do wyrażenia własnego stanowiska i zakwestionowania decyzji opartej na
+zautomatyzowanym przetwarzaniu danych.<br/>
+
+<p>Potwierdzam, że decyzję o zawarciu Umowy Pożyczki, w tym co do oświadczeń zawartych w pkt 28 Umowy, podjąłem świadomie i swobodnie, oraz że podejmując tę decyzję nie znajdowałem się w położeniu przymusowym, nie działałem pod wpływem nacisku lub innych niekorzystnych okoliczności, oraz że moje dochody pozwolą mi spłacić łączne zobowiązanie wynikające z Umowy Pożyczki. Potwierdzam r&oacute;wnież, że otrzymałem Całko- witą kwotę pożyczki w całości, jestem jedyną osobą zobowiązaną do spłaty kwoty oznaczonej w niniejszej Umowie Pożyczki, jako Całkowita kwota pożyczki wraz z należnym Oprocentowaniem oraz Opłatą za zarządzanie pożyczką (o ile jest należna) i opłatami dodatkowymi (jeśli występują)&rdquo;. Przyjmuję do wiadomości, że złożenie niniejszego oświadczenia nie wyłącza możliwości podnoszenia przeze mnie ewentualnych zarzut&oacute;w w stosunku do postanowień Umowy Pożyczki, w tym dotyczących abuzywności postanowień Umowy Pożyczki czy podnoszenia okoliczności w zakresie nieadekwatności oferty Pożyczki w stosunku do moich rzeczywistych potrzeb.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Dobrowolne oświadczenie Pożyczkobiorcy</h3>
+<p>Pożyczkobiorca wskazuje, że jest posiadaczem rachunku bankowego o numerze, <u>&nbsp;&nbsp; </u>&nbsp;prowadzonym przez bank <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u>&nbsp;i oświadcza, że Pożyczkodawca może na wskazany rachunek dokonywać rozliczeń wobec Pożyczkobiorcy, w szczeg&oacute;lności związanych ze zmianą rocznej stopy oprocentowania pożyczki.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>REGULAMIN pożyczek udzielanych przez CASH SERVICE 4 HOME Sp. z o.o. z siedzibą w Warszawie - integralna część Umowy Pożyczki</strong></p>
+<p><strong>&nbsp;</strong></p>
+<h2><strong>ROZDZIAŁ I WSTĘP</strong></h2>
+<p>Pojęcia użyte oznaczają:</p>
+<p><strong>Kodeks</strong> <strong>cywilny </strong>- ustawa z dnia 23 kwietnia 1964 r. Kodeks cywilny (t.j. Dz. U. z 2022 r., poz. 1360. z p&oacute;źn. zm.);</p>
+<p><strong>Ustawa</strong> <strong>o kredycie</strong> <strong>konsumenckim </strong>- ustawa z dnia 12 maja 2011r. o kredycie konsumenckim (t.j. Dz.U. z 2022 r., poz.246 z p&oacute;źn. zm.);</p>
+<p><strong>Ustawa</strong> <strong>o</strong> <strong>udostępnianiu</strong> <strong>informacji</strong> <strong>gospodarczych</strong> - ustawa z dnia 9 kwietnia 2010 r o udostępnianiu informacji gospodarczych i wymianie danych gospodarczych (t.j. Dz.U. z 2021, poz. 2057, z p&oacute;źn. zm.);<strong>Ustawa o prawach konsumenta </strong>- ustawa z dnia 30 maja 2014 roku o prawach konsumenta (t.j. Dz.U. z 2020 r., poz. 287, ze zm.);</p>
+<p><strong>Pożyczkodawca</strong> - CAPITAL4YOU Sp. z o.o. z siedzibą w Kaliszu przy ul. Garncarskiej 1, 62-800 Kalisz, wpisana do rejestru przedsiębiorc&oacute;w prowadzonego przez Sąd Rejonowy Poznań &ndash; Nowe Miasto i Wilda w Poznaniu, IX Wydział Gospodarczy Krajowego Rejestru Sądowego pod numerem KRS 0001033157;</p>
+<p>będąca instytucją pożyczkową w rozumieniu art. 5 pkt 2a Ustawy o kredycie konsumenckim;</p>
+<p><strong>Pożyczkobiorca</strong> - osoba fizyczna zaciągająca pożyczkę u Pożyczkodawcy posiadająca pełną zdolność do czynności prawnych, kt&oacute;ra w chwili składania Wniosku o udzielenie Pożyczki ukończyła osiem- naście lat oraz nie przekroczyła siedemdziesięciu pięciu lat, posiada numer PESEL oraz stałe zameldowanie na terenie Polski;</p>
+<p><strong>Bank</strong> <strong>Pocztowy </strong>- Bank Pocztowy Sp&oacute;łka Akcyjna z siedzibą w Bydgoszczy, adres: ul. Jagiellońska 17, 85-959 Bydgoszcz, wpisana pod numerem KRS 0000010821 do Rejestru Przedsiębiorc&oacute;w, prowadzonego przez Sąd Rejonowy w Bydgoszczy, XIII Wydział Gospodarczy Krajowego Rejestru Sądowego;</p>
+
+<p><strong>Wniosek o udzielenie pożyczki </strong>- formularz zawierający dane Pożyczkobiorcy wraz z wnioskiem Pożyczkobiorcy złożonym w celu zawarcia Umowy Pożyczki;</p>
+<p><strong>Biura Informacji Gospodarczej - </strong>biura informacji gospodarczej, o kt&oacute;rych mowa w Ustawie o udostępnianiu informacji gospodarczych;</p>
+<p><strong>Umowa</strong> <strong>Pożyczki</strong> - każda Umowa Pożyczki (Pierwsza, i każda następna) zawarta pomiędzy Pożyczkodawcą a Pożyczkobiorcą, będąca jednocześnie deklaracją wekslową do wystawionego przez Pożyczko- biorcę Weksla;</p>
+<p><strong>Pierwsza Pożyczka </strong>- pożyczka udzielana Pożyczkobiorcy przez Pożyczkodawcy po raz pierwszy, lub udzielana w sytuacji braku jakichkolwiek wymagalnych zobowiązań Pożyczkobiorcy wobec Pożyczkodawcy z tytułu um&oacute;w pożyczek;</p>
+<p><strong>Kurier </strong>- osoba fizyczna, upoważniona do wykonania w imieniu Pożyczkodawcy nieodpłatnej usługi doręczenia oraz wypłaty Pożyczkobiorcy w formie got&oacute;wki Całkowitej kwoty Pożyczki, za pokwitowaniem, po okazaniu przez Pożyczkobiorcę dokumentu tożsamości, jak r&oacute;wnież upoważniona do odebrania od Pożyczkobiorcy Weksla;</p>
+<p><strong>Weksel </strong>- weksel własny in blanco, wystawiony przez pożyczkodawcę celem zabezpieczenia wierzytelności Pożyczkodawcy, zawierający klauzulę &lsquo;&rsquo;nie na zlecenie&rsquo;&rsquo;;</p>
+<p><strong>Pożyczka</strong> - środki pieniężne przekazywane Pożyczkobiorcy przez Pożyczkodawcę w formie kr&oacute;tkoterminowej pożyczki w wysokości i na warunkach określonych w Umowie Pożyczki oraz niniejszym Regulaminie;</p>
+<p><strong>Rata</strong> <strong>(Pożyczki)</strong> - forma spłaty Pożyczki, polegająca na tym, że Pożyczkobiorca dokonuje spłaty Całkowitej kwoty do zapłaty, w r&oacute;wnych płatnościach w każdym okresie spłaty Raty. Rata pożyczki może być powiększona o Opłatę za zarządzanie pożyczką, Odsetki za op&oacute;źnienie i Opłaty dodatkowe - o ile są należne;</p>
+<p><strong>Całkowita</strong><strong> kwota pożyczki </strong>- suma wszystkich środk&oacute;w pieniężnych, nieobejmujących kredytowanych koszt&oacute;w kredytu, jakie Pożyczkodawca udostępnia Pożyczkobiorcy na podstawie Umowy Pożyczki, określona poz. I Umowy Pożyczki;</p>
+<p><strong>Oprocentowanie</strong> - odsetki naliczane od Całkowitej kwoty pożyczki, zgodnie z pkt 14 Umowy Pożyczki;</p>
+<p><strong>Rzeczywista roczna stopa oprocentowania </strong>- kt&oacute;ra stanowi całkowity koszt kredytu ponoszony przez Pożyczkobiorcę, wyrażony jako wartość procentowa całkowitej kwoty pożyczki w stosunku rocznym, RRSO oblicza się zgodnie ze wzorem matematycznym zamieszczonym w Załączniku nr 4 do ustawy z dnia 12 maja 2011 roku o kredycie konsumenckim i w oparciu o założenia tam wskazane. Do cel&oacute;w obliczenia rzeczywistej rocznej stopy oprocentowania uwzględnia się całkowity koszt kredytu ponoszony przez Pożyczkobiorcę, z wyłączeniem opłat z tytułu niewykonania zobowiązań wynikających z umowy pożyczki, stopa oprocentowania pożyczki i opłaty, kt&oacute;rych zmian nie można określić w chwili ustalania rocznej rzeczywistej stopy oprocentowania uznaje się za niezmienione przez cały okres obowiązywania Umowy Pożyczki do cel&oacute;w obliczania RRSO;</p>
+<p><strong>Okres</strong> <strong>spłaty</strong> <strong>Pożyczki</strong> - Wielokrotność okres&oacute;w miesięcznych spłaty Pożyczki zgodnie z dyspozycją Pożyczkobiorcy, liczonych od dnia zawarcia Umowy, z tym, że w przypadku, gdy Umowa Pożyczki została zawarta w dniu 29,30 lub 31 danego miesiąca, Okres spłaty Pożyczki liczy się, począwszy od pierwszego dnia miesiąca kalendarzowego, następującego po miesiącu zawarcia Umowy Pożyczki. Okres spłaty Pożyczki kończy się z chwilą Wymagalności Całkowitej kwoty do za- płaty;</p>
+<p><strong>Pierwszy okres spłaty Pożyczki </strong>- jest płatny w terminie miesiąca licząc od dnia zawarcia umowy, z tym, że jeżeli umowa została zawarta 29, 30 lub 31 dnia danego miesiąca, termin płatności pierwszej raty liczy się, od pierwszego dnia miesiąca kalendarzowego;</p>
+<p><strong>Opłaty</strong> - Pożyczkodawca pobiera opłaty wymienione w niniejszym Regulaminie, zgodnie z Tabelą Opłat obowiązującą u Pożyczkodawcy. Tabela Opłat dostępna jest w siedzibie Pożyczkodawcy, oraz na stronie <a href="http://www.capital4you.pl">www.capital4you.pl</a> ;</p>
+<p><strong>Opłata za zarządzanie pożyczką </strong>- pobierana od Klienta przez Pożyczkodawcę, jako comiesięczne wynagrodzenie doliczane do Raty Pożyczki Klienta zawierające koszty</p>
+
+<p>rozliczenia bieżącej Raty i zarządzania płatnością kolejnych Rat (m.in.: koszty druku, obsługi bankowej, systemu IT, obsługi administracyjnooperacyjnej itp.) w Okresie spłaty Pożyczki, jednak nie dłużej niż przez okres wskazany w rubryce &bdquo;Czas obowiązywania umowy&rdquo;;</p>
+<p><strong>Opłaty</strong><strong> dodatkowe </strong>- opłaty z tytułu zaległości w spłacie kredytu w rozumieniu art. 30 ust. 1 pkt 11 Ustawy o kredycie konsumenckim, w kwocie faktycznie poniesionej przez Pożyczkodawcę z tytułu monitu/ wezwania Pożyczkobiorcy do spłaty zadłużenia, lecz nieprzekraczającej łącznie z naliczonymi Pożyczkobiorcy Odsetkami za op&oacute;źnienie na dzień pobrania tych odsetek lub Opłat dodatkowych - kwoty Odsetek za op&oacute;źnienie;</p>
+<p><strong>Całkowita</strong> <strong>kwota</strong> <strong>do</strong> <strong>zapłaty</strong> - należna Pożyczkodawcy suma Całko- witego kosztu pożyczki i Całkowitej kwoty pożyczki;</p>
+<p><strong>Całkowity</strong> <strong>koszt</strong> <strong>pożyczki</strong> - wszelkie koszty, kt&oacute;re Pożyczkobiorca jest zobowiązany ponieść w związku z Umową Pożyczki, tj. Opłata za zarządzanie pożyczką, Oprocentowanie, Odsetki za op&oacute;źnienie i Opłaty dodatkowe - o ile są należne;</p>
+<p><strong>Poza odsetkowe</strong><strong> koszty pożyczki </strong>- wszystkie koszty, jakie Pożyczko- biorca ponosi w związku z Umową Pożyczki, tj. Opłata za zarządzanie pożyczką, Opłaty dodatkowe - o ile są należne;</p>
+<p><strong>Indywidualny</strong><strong> Rachunek Bankowy </strong>- wskazany na pierwszej stronie Umowy Pożyczki rachunek, na kt&oacute;ry należy dokonać spłaty Pożyczki;</p>
+<p><strong>Terminarz</strong> <strong>spłat</strong> - dokument określający terminy spłat Rat Pożyczki;</p>
+<p><strong>Termin</strong> <strong>płatności</strong> - ustalony w Umowie Pożyczki lub w Terminarzu spłat termin spłaty poszczeg&oacute;lnych Rat Pożyczki;</p>
+<p><strong>Wymagalność</strong> - stan wierzytelności, kt&oacute;rej termin płatności upłynął;</p>
+<p><strong>Odsetki za op&oacute;źnienie </strong>- odsetki pobierane w przypadku op&oacute;źnienia Pożyczkobiorcy w spłacie Rat Pożyczki naliczane na zasadach określonych w pkt 12 Umowy Pożyczki oraz Rozdziale V pkt 24 Regulaminu;</p>
+<p><strong>Weryfikacja</strong> - czynności kontrolne dokonywane przez Pożyczkodawcę , polegające na zweryfikowaniu pod względem zgodności informacji oraz danych zamieszczonych przez Pożyczkobiorcę we Wniosku o pożyczkę, jak r&oacute;wnież weryfikacji Pożyczkobiorcy w bazach Biur Informacji Gospodarczej;</p>
+<p><strong>Reklamacja </strong>- wystąpienie Pożyczkobiorcy skierowane do Pożyczkodawcy, w kt&oacute;rym Pożyczkobiorca zgłasza zastrzeżenia dotyczące usług świadczonych przez Pożyczkodawcę;</p>
+<p><strong>Regulamin</strong> - niniejszy Regulamin.</p>
+<h2><strong>ROZDZIAŁ II POSTANOWIENIA OG&Oacute;LNE</strong></h2>
+<p><strong>&nbsp;</strong></p>
+<ol>
+<li>Pożyczkodawca udziela pożyczek got&oacute;wkowych osobom fizycznym spełniającym następujące warunki:</li>
+</ol>
+<ol>
+<li>stałe zamieszkanie w Polsce i posiadanie obywatelstwa polskiego, potwierdzonego dowodem osobistym;</li>
+<li>posiadanie pełnej zdolności do czynności prawnych;</li>
+<li>ustanowienie zabezpieczenia spłaty pożyczki wymaganego przez Pożyczkodawcę;</li>
+<li>ukończenie 18 lat i nieukończenie 75 lat życia;</li>
+<li>posiadanie stałego źr&oacute;dła dochod&oacute;w, pozwalającego na spłatę łącznej kwoty do zapłaty;</li>
+<li>złożenie Wniosku o pożyczkę, zawarcie Umowy Pożyczki i zaakceptowanie Regulaminu pożyczek.</li>
+<li>Pożyczkobiorca zobowiązany jest do:</li>
+<li>podania adresu korespondencyjnego, na kt&oacute;ry Pożyczkodawca będzie przesyłał korespondencję związaną z zawartą Umową Pożyczki;</li>
+<li>powiadomienia Pożyczkodawcy o każdej zmianie danych osobowych, (w tym adresu, miejsca zatrudnienia oraz numeru telefonu), kt&oacute;re zostały podane w związku z zawartą Umową Pożyczki;</li>
+<li>niezwłocznego powiadomienia Pożyczkodawcy o utracie dokumentu tożsamości</li>
+</ol>
+
+<ol start="3">
+<li>Pożyczkodawca zastrzega sobie prawo odmowy akceptacji adresu korespondencyjnego w postaci skrytki pocztowej lub adresu poza granicami</li>
+<li>Pożyczkodawca nie ponosi odpowiedzialności za ewentualne koszty poniesione przez Pożyczkobiorcę na rzecz os&oacute;b trzecich w związku z odmową udzielenia pożyczki.</li>
+<li>Wizyta kontrolna Przedstawiciela może odbyć się wyłącznie za uprzednią zgodą Pożyczkobiorcy i/lub na życzenie Pożyczkobiorcy, w terminie i miejscu zamieszkania Pożyczkobiorcy lub w innym miejscu uzgodnionym z Pożyczkobiorcą.</li>
+<li>Pożyczkodawca udziela Pożyczek określonych w Rozdziale II, jeżeli Pożyczkobiorca spełnia kumulatywnie następujące warunki:</li>
+<li>posiada ważny dow&oacute;d osobisty, kt&oacute;ry stwierdza jego tożsamość na terytorium Rzeczpospolitej Polskiej;</li>
+<li>złożył poprawnie wypełniony Wniosek o Pożyczkę;</li>
+<li>&nbsp;</li>
+<li>nie posiada żadnych zaległości pieniężnych wymagalnych i niewymagalnych wobec Pożyczkodawcy;</li>
+<li>spełnia kryteria określone w wewnętrznych regulacjach Pożyczkodawcy dotyczących&nbsp; zasad i warunk&oacute;w udzielania pożyczek;</li>
+<li>spełnił wszystkie warunki, o kt&oacute;rych mowa w niniejszym Regulaminie.</li>
+<li>Poprzez złożenie Wniosku o udzielenie Pożyczki Pożyczkobiorca oświadcza, iż:</li>
+<li>spełnia wymogi, o kt&oacute;rych mowa w Rozdziale II pkt 1 ppkt 1)-5) niniejszego Regulaminu;</li>
+<li>nie są znane mu żadne okoliczności mogące wpłynąć na możliwość spłaty zaciągniętej przez niego Pożyczki, w szczeg&oacute;lności, że nie istnieją okoliczności będące przeszkodą w uzyskaniu Pożyczki, zgodnie z Rozdziałem II Regulaminu;</li>
+<li>wyraża zgodę na weryfikację informacji dotyczących źr&oacute;dła i wysokości uzyskiwanego przez Pożyczkobiorcę dochodu.</li>
+</ol>
+<p><strong>&nbsp;</strong></p>
+<ol start="8">
+<li>Pożyczkobiorca jest obowiązany przedłożyć na żądanie Pożyczkodawcy dokumenty i informacje niezbędne do dokonania oceny zdolności kredytowej, w tym złożenia oświadczenia o dochodach Pożyczkobiorcy i stałych wydatkach gospodarstwa domowego oraz dokument&oacute;w potwierdzających wysokość dochod&oacute;w Pożyczkobiorcy. W przypadku złożenia przez Pożyczkobiorcę oświadczenia o dochodach Pożyczkobiorcy i stałych wydatkach gospodarstwa domowego, oświadczenie to stanowi załącznik do niniejszej Umowy. Pożyczkodawca zastrzega sobie prawo do weryfikacji informacji podanych przez Pożyczkobiorcę. Jeżeli Pożyczkodawca odm&oacute;wi Pożyczkobiorcy udzielenia Pożyczki na podstawie informacji zawartych w bazach Biur Informacji Gospodarczejinstytucji, o kt&oacute;rych mowa w art. 105 ust. 4 ustawy z dnia 29 sierpnia 1997 r. - Prawo bankowe, lub zbiorze danych Pożyczkodawcy, Pożyczkodawca niezwłocznie przekazuje Pożyczkobiorcy bezpłatną informację o wynikach tego sprawdzenia oraz wskazuje bazę danych, w kt&oacute;rej tego sprawdzenia</li>
+<li>Jeżeli w okresie między zawarciem umowy pożyczki, a uruchomieniem środk&oacute;w z pożyczki zajdą okoliczności wskazujące na brak zdolności kredytowej Pożyczkobiorcy albo gdy Pożyczkodawca poweźmie uprawdopodobnioną wiadomość, że Pożyczkobiorca, złożył niezgodne ze stanem faktycznym oświadczenia wskazujące, że zwrot pożyczki jest wątpliwy z powodu złego stanu majątkowego drugiej Pożyczkodawca może odstąpić od Umowy Pożyczki, i odm&oacute;wić wydania przedmiotu pożyczki. Uprawnienie to nie przysługuje Pożyczkodawcy, jeżeli w chwili zawarcia Umowy Pożyczki, o złym stanie majątkowym drugiej strony wiedział lub z łatwością m&oacute;gł się dowiedzieć.</li>
+<li>Pożyczka może zostać udzielona wyłącznie w polskich zło</li>
+</ol>
+<p>Pożyczkę uważa się za udzieloną w momencie wypłaty Pożyczki got&oacute;wką przez</p>
+
+<ol start="3">
+<li>Kuriera, lub lub też w dacie uznania na koncie Pożyczkobiorcy.</li>
+</ol>
+<p>&nbsp;</p>
+<h2><strong>ROZDZIAŁ III POSTĘPOWANIE REKLAMACYJNE</strong></h2>
+<p><strong>&nbsp;</strong></p>
+<ol start="4">
+<li>Pożyczkobiorca uprawniony jest do składania Pożyczkodawcy reklamacji pozostającej w związku z ważnie zawartą z mocy prawa, Umową Pożyczki.</li>
+<li>Reklamacja może być złożona przez Pożyczkobiorcę w formie:</li>
+<li>pisemnej - osobiście w siedzibie Pożyczkodawcy, lub przesyłką pocztową w rozumieniu art.3 pkt 21 ustawy z dnia 23 listopada 2012 r. &ndash; Prawo pocztowe na adres siedziby Pożyczkodawcy lub też wysłana na adres do doręczeń elektronicznych: _____________________,</li>
+<li>ustnie &ndash; telefonicznie albo osobiście do protokołu pod- czas wizyty Pożyczkobiorcy w siedzibie Pożyczkodawcy.</li>
+<li>Termin rozpatrzenia reklamacji wynosi 30 dni od daty otrzymania reklamacji. W przypadku braku możliwości rozpatrzenia reklamacji w powyższym terminie, Pożyczkodawca przed upływem terminu zawiadomi Pożyczkobiorcę, na piśmie, o przyczynach op&oacute;źnienia, wymaganych dla rozpatrzenia sprawy okolicznościach i przewidywanym terminie rozpatrzenia reklamacji oraz udzielenia odpowiedzi, nie p&oacute;źniejszym jednak niż 60 dni od daty otrzymania reklamacji przez Pożyczkodawcę. Odpowiedzi na złożoną przez Pożyczkobiorcę reklamację Pożyczkodawca udziela w postaci papierowej, na adres Pożyczkobiorcy przekazany do wiadomości Pożyczkodawcy. Na wniosek Pożyczkobiorcy, odpowiedź na złożoną przez Pożyczkobiorcę reklamację, Pożyczkodawca może dostarczyć pocztą elektroniczną na wskazany przez Pożyczkobiorcę adres e-mail.</li>
+</ol>
+<p>&nbsp;</p>
+<h2><strong>ROZDZIAŁ</strong> <strong>IV</strong> <strong>SPŁATA</strong> <strong>POŻYCZKI</strong></h2>
+<p><strong>&nbsp;</strong></p>
+<ol start="7">
+<li>Pożyczkobiorca dokonuje spłaty Pożyczki poprzez spłatę Raty Pożyczki w wysokości określonej Terminarzem spłat.</li>
+<li>Pożyczkobiorca dokonuje spłaty Pożyczki w rozumieniu pkt 15 powyżej, w terminie płatności Rat Pożyczki termin płatności pierwszej i kolejnych miesięcznych Rat przypadają w kolejnych miesiącach kalendarzowych, licząc od dnia zawarcia Umowy z tym, że w przypadku, gdy Umowa została zawarta w dniu 29, 30 lub 31 danego miesiąca, termin spłaty pierwszej i kolejnej Raty liczy się, poczynając od pierwszego dnia kolejnego miesiąca kalendarzowego zgodnie z Terminarzem spłat.</li>
+<li>Spłaty Pożyczki Pożyczkobiorca dokonuje przelewem, na Indywidualny Rachunek Bankowy. Pożyczkobiorca może dokonać też spłaty Pożyczki poprzez spłatę Rat w siedzibie Pożyczkodawcy, bądź też za pomocą usługi przekazu pieniężnego w rozumieniu ustawy z dnia 19 sierpnia 2011 r. o usługach płatniczych (t.j. Dz. U. z 2022 r., poz. 2360, ze zm.), świadczonej przez podmiot uprawniony na mocy tej ustawy.</li>
+</ol>
+<h3>10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Za dzień spłaty Raty Pożyczki uważa się dzień uznania środk&oacute;w wpłaconych przez Pożyczkobiorcę na Indywidualnym Rachunku Bankowym. Opłaty bankowe pobierane przez bank Pożyczkobiorcy po- nosi Pożyczkobiorca.</h3>
+<ol start="11">
+<li>Wpłaty kolejnych Rat Pożyczki przez Pożyczkobiorcę są zaliczane na poczet należności Pożyczkodawcy, w podanej kolejności: Kapitał pozostały do spłaty; <strong>2. </strong>Opłata za zarządzanie pożyczką; <strong>3. </strong>Oprocentowanie Pożyczki; <strong>4. </strong>Opłaty dodatkowe.</li>
+</ol>
+<p>W przypadku zwłoki Pożyczkobiorcy z zapłatą kolejnych Rat Pożyczki, poszczeg&oacute;lne, kolejne wpłaty dokonane przez Pożyczkobiorcę, podlegają kolejno zaliczeniu z tytułu należności, w podanej kolejności: <strong>1. </strong>Kapitał najstarszej Raty wymagalnej; <strong>2. </strong>Kapitał kolejnej zaległej Raty wymagalnej; <strong>3. </strong>Opłata za zarządzanie pożyczką; <strong>4. </strong></p>
+
+<ol start="3">
+<li>
+<ol start="3">
+<li>Oprocentowanie Pożyczki od najstarszej wymagalnej Raty; Oprocentowanie Pożyczki od kolejnej Raty wymagalnej; <strong>6. </strong>Odsetki za op&oacute;źnienie (odsetki za zwłokę); <strong>7. </strong>Opłaty dodatkowe - zwrot koszt&oacute;w monit&oacute;w/ wezwań w wysokości 10 złotych w przypadku każdego monitu/wezwania przesłanego listem poleconym do Pożyczkobiorcy oraz koszty windykacji.</li>
+</ol>
+<h2><strong>ROZDZIAŁ V POSTANOWIENIA OG&Oacute;LNE UMOWY POŻYCZKI</strong></h2>
+<p><strong>&nbsp;</strong></p>
+<ol start="4">
+<li>Opłaty i inne koszty uiszczone przez Pożyczkobiorcę przed zawarciem umowy pożyczki podlegają niezwłocznie zwrotowi, w przypadku gdy umowa pożyczki nie została zawarta lub kwota pożyczki nie została wypłacona przez Pożyczkodawcę w terminie wskazanym w pkt 8 Umowy Pożyczki.</li>
+<li>Pożyczkobiorca jest uprawniony do zwrotu kwoty Pożyczki przed terminem wymagalności.</li>
+<li>Pożyczkobiorca w przypadku zwrotu kwoty Pożyczki przed terminem wymagalności nie jest zobowiązany do zapłaty Oprocentowania za okres po spłacie Pożyczki.</li>
+<li>W przypadku braku spłaty przez Pożyczkobiorcę całości lub części Pożyczki zgodnie z warunkami określonymi w Umowie Pożyczki, Pożyczkodawca uprawniony będzie do naliczania Odsetek za op&oacute;źnienie od kwoty Pożyczki, kt&oacute;ra nie została Pożyczkodawcy spłacona w terminie. Oprocentowanie za op&oacute;źnienie od kwoty zadłużenia jest zmienne i jest r&oacute;wne dwukrotności wysokości odsetek ustawowych za op&oacute;źnienie, o kt&oacute;rych mowa w art. 481 &sect; 21 Kodeksu cywilnego (odsetki maksymalne za op&oacute;źnienie), w wysokości wskazanej pkt 12 Umowy Pożyczki. Zmiana stopy pro- centowej Odsetek za op&oacute;źnienie następuje automatycznie wraz ze zmianą wysokości stopy referencyjnej Narodowego Banku Polskiego.</li>
+<li>W przypadku, gdy w ocenie Pożyczkodawcy istnieje konieczność podjęcia czynności mających na celu windykację należności Pożyczkodawcy, jak r&oacute;wnież w trakcie trwania takich czynności, Pożyczkodawca w celu dochodzenia wymagalnych należności może korzystać z pośrednictwa wy- specjalizowanych firm windykacyjnych, kt&oacute;re mogą podejmować wszelkie prawem dopuszczalne działania służące zaspokojeniu roszczeń Pożyczkodawcy. W takim przypadku podmiotom tym zostaną przekazane wszelkie niezbędne informacje związane z należnościami.</li>
+<li>Umowa pożyczki rozwiązuje się:</li>
+<li>na mocy pisemnego wypowiedzenia przez Pożyczkodawcę &ndash; na warunkach wskazanych w pkt 27 Regulaminu poniżej,</li>
+<li>na mocy pisemnego wypowiedzenia przez Pożyczko- biorcę, z zachowaniem 14 &ndash; dniowego terminu wypowiedzenia,</li>
+<li>na mocy pisemnego porozumienia Pożyczkodawcy i Pożyczkobiorcy &ndash; w każdym czasie.</li>
+</ol>
+W przypadku op&oacute;źnienia Pożyczkobiorcy w zapłacie kolejnych Rat Pożyczki, za co najmniej dwa okresy płatności, w terminach wynikających z Umowy Pożyczki, Pożyczkodawca jest uprawniony do wypowiedzenia Umowy Pożyczki w formie pisemnej pod rygorem nieważności. Termin wypowiedzenia Umowy Pożyczki przez Pożyczkodawcę wynosi 14 dni. Z chwilą upływu terminu wypowiedzenia Umowy Pożyczki, Pożyczkobiorca jest zobowiązany do niezwłocznego, lecz nie p&oacute;źniej niż w ciągu 7 dni, zwrotu na rachunek bankowy Pożyczkodawcy całości pozostałej do spłaty kwoty Pożyczki wraz ze wszelkimi wymagalnymi do tego dnia zobowiązaniami dodatkowymi (Odsetki za op&oacute;źnienie). W przypadku niedokonania przez Pożyczkobiorcę w terminach wskazanych w zdaniu poprzednim, zwrotu Pożyczki oraz innych opłat lub Odsetek, do kt&oacute;rych zapłaty Pożyczkobiorca jest zobowiązany, Pożyczkodawca ma prawo do wypełnienia wystawionego przez Pożyczkobiorcę weksla własnego in blanco na kwotę r&oacute;wną sumie niezwr&oacute;conych kwot Pożyczki,</li>
+</ol>
+
+<ol start="3">
+<li>Odsetek, opłat oraz powstałych koszt&oacute;w, jeśli zostaną naliczone przez Pożyczkodawcę.</li>
+<li>Pożyczkodawca może przenieść swą wierzytelność wynikającą z Umowy Pożyczki oraz zabezpieczenie, o kt&oacute;rym mowa w pkt 4 Umowy Pożyczki na osobę trzecią, a Pożyczkobiorca wyraża na to zgodę. Przeniesienie zabezpieczenia nastąpi w drodze przelewu praw z Weksla.</li>
+</ol>
+<ol>
+<li>Umowa Pożyczki wygasa z dniem całkowitej spłaty zobowiązań z niej wynikających. W&oacute;wczas Pożyczkodawca zwr&oacute;ci Pożyczkobiorcy wystawiony przez niego, celem zabezpieczenia Umowy Pożyczki, Weksel, przesyłką poleconą za potwierdzeniem odbioru, na adres Pożyczkobiorcy wskazany Umową Pożyczki.</li>
+</ol>
+<p>&nbsp;</p>
+<h2><strong>ROZDZIAŁ VI POSTANOWIENIA KOŃCOWE</strong></h2>
+<p><strong>&nbsp;</strong></p>
+<ol start="2">
+<li>Każdy może zapoznać się z treścią umowy o udzielenie pożyczki przed jej Tekst Regulaminu jest dostępny na stronie <a href="http://www.benefitia.pl/">www.capital4you.pl</a></li>
+<li>Wszelkie zawiadomienia przekazywane w związku z Umową Pożyczki sporządzane muszą być w języku polskim, na piśmie, listem poleconym na adres drugiej Strony, wskazany we Wniosku o udzielenie Pożyczki.</li>
+<li>Regulamin podlega prawu polskiemu i zgodnie z nim winien być interpretowany.</li>
+<li>Pożyczkobiorca zobowiązany jest podać we Wniosku o udzielenie Pożyczki prawdziwe dane.</li>
+<li>Podanie nieprawdziwych danych wprowadzających Pożyczkodawcę w błąd skutkujący doprowadzeniem do niekorzystnego rozporządzenia jego mieniem, może rodzić odpowiedzialność karną po stronie Pożyczkobiorcy.
+<ul>
+<li>Jeżeli poszczeg&oacute;lne postanowienia Umowy Pożyczki lub Regulaminu stanowiącego jej integralną część okażą się nieważne pozostałe postanowienia pozostają w mocy.</li>
+</ul>
+</li>
+</ol>
+<p>&nbsp;</p>
